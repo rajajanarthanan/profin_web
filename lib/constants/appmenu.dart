@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 List<String> navTitles = [
   "Home",
+  "Contact Us",
   "Join Us",
   "Explore our Store",
 ];
 
 List<IconData> navIcons = [
   Icons.home,
+  Icons.contact_mail,
   Icons.app_registration,
   Icons.shopping_bag_outlined,
   //Icons.get_app_outlined,

@@ -11,11 +11,11 @@ class MainDesktop extends StatelessWidget {
     final screenHeight = screenSize.height;
 
     return Container(
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 20.0,
       ),
       height: screenHeight / 1.2,
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         minHeight: 350.0,
       ),
       child: Row(
@@ -25,9 +25,9 @@ class MainDesktop extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Break Through the noise\n Stand Out in the Inbox",
+                " Break Through the noise,\n Stand Out in the Inbox !",
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 50.0,
                   height: 1.5,
                   fontWeight: FontWeight.bold,
                   color: CustomColor.whitePrimary,
@@ -36,11 +36,17 @@ class MainDesktop extends StatelessWidget {
               const SizedBox(height: 15),
               SizedBox(
                 width: 250,
+                height: 80,
                 child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Get the App"),
-                ),
-              )
+                    onPressed: () {},
+                    child: const Text(
+                      "Get the App",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.amber,
+                      ),
+                    )),
+              ),
             ],
           ),
           Image.asset(

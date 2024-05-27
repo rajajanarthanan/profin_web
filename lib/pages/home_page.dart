@@ -7,8 +7,15 @@ import 'package:pr_web_test/constants/appmenu.dart';
 import 'package:pr_web_test/constants/colors.dart';
 import 'package:pr_web_test/constants/second_page.dart';
 import 'package:pr_web_test/constants/size.dart';
+import 'package:pr_web_test/constants/sns_links.dart';
 import 'package:pr_web_test/styles/style.dart';
+import 'package:pr_web_test/utils/fourthpage_utils.dart';
+import 'package:pr_web_test/widgets/contact_page.dart';
+import 'package:pr_web_test/widgets/custom_textfield.dart';
 import 'package:pr_web_test/widgets/drawer_mobile.dart';
+import 'package:pr_web_test/widgets/footer.dart';
+import 'package:pr_web_test/widgets/fourth_page.dart';
+import 'package:pr_web_test/widgets/fourthpage_section.dart';
 import 'package:pr_web_test/widgets/header_desktop.dart';
 import 'package:pr_web_test/widgets/header_mobile.dart';
 import 'package:pr_web_test/widgets/main_desktop.dart';
@@ -16,7 +23,9 @@ import 'package:pr_web_test/widgets/main_mobile.dart';
 import 'package:pr_web_test/widgets/second_desktop.dart';
 //import 'package:pr_web_test/widgets/sample_second_desktop.dart';
 import 'package:pr_web_test/widgets/second_mobile.dart';
+import 'package:pr_web_test/widgets/third_page.dart';
 import 'package:pr_web_test/widgets/web_logo.dart';
+import 'dart:js' as js;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,27 +36,43 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final scrollController = ScrollController();
+  final List<GlobalKey> navbarKeys = List.generate(2, (index) => GlobalKey());
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
 
     return LayoutBuilder(
-      //LObuilder passes the parameters and constraints contains the infor of screensize
-      builder: (context, constraints) {
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: CustomColor.scaffoldBg,
-          endDrawer: constraints.maxWidth >= kMinDesktopWidth
-              ? null
-              : const DrawerMobile(), //null--> we no need drawer menu on desktop else the mobile view will display
-          body: ListView(
-            scrollDirection: Axis.vertical,
+        //LObuilder passes the parameters and constraints contains the infor of screensize
+        builder: (context, constraints) {
+      return Scaffold(
+        key: scaffoldKey,
+        backgroundColor: CustomColor.scaffoldBg,
+        endDrawer: constraints.maxWidth >= kMinDesktopWidth
+            ? null
+            : DrawerMobile(
+                onNavItemTap: (int navIndex) {
+                  // function call
+                  scaffoldKey.currentState?.closeEndDrawer();
+
+                  scrollToSection(navIndex);
+                },
+              ), //null--> we no need drawer menu on desktop else the mobile view will display
+        body: SingleChildScrollView(
+          controller: ScrollController(),
+          scrollDirection: Axis.vertical,
+          child: Column(
             children: [
+              SizedBox(key: navbarKeys.first), //if tap on the home button
               //home
               if (constraints.maxWidth >=
                   kMinDesktopWidth) //screen size max or min
-                const HeaderDesktop()
+                HeaderDesktop(onNavMenuTap: (int navIndex) {
+                  //call function
+                  scrollToSection(navIndex);
+                })
               else
                 HeaderMobile(
                   onLogoTap: () {},
@@ -85,14 +110,28 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
               //thirdpage
+              ThirdPage(),
+              //end of third page
+              SizedBox(height: 20),
+              //fourthpage
+              const FourthpageSection(),
+
+              const SizedBox(height: 30),
+
+              //last page
               Container(
+                height: 800,
+                //width: double.maxFinite,
+                color: Colors.blueGrey,
+
                 width: screenWidth,
                 padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                 child: Column(
                   children: [
                     const Text(
-                      "Why Whatsapp Marketing? ",
+                      "Works All Over the World ",
                       style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
@@ -101,58 +140,57 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 20),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          height: 280,
-                          width: 250,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: CustomColor.bgLight2,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "whywhatsappmarketing.png",
-                                fit: BoxFit.contain,
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                            width:
-                                16), // Add some space between the image and the text
-                        // Text content on the right side of the image
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "WhatsApp marketing is a way of promoting businesses \nand engaging customers using the WhatsApp platform. \nIt offers direct communication, broad reach, and \nthe ability to share a variety of media, making it an effective tool for \nmarketing strategies.",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: CustomColor.whitePrimary,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "newworld.png",
+                                  width: 800,
+                                  fit: BoxFit.contain,
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
+                          ],
                         ),
+                        const SizedBox(width: 16),
                       ],
                     ),
                   ],
                 ),
               ),
-              //getapp
-              Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.amber[200],
+              //contact
+              const SizedBox(height: 20),
+              ContactPage(
+                key: navbarKeys[1],
               ),
+              //footer
+              Footer(),
             ],
           ),
-        );
-      },
+        ),
+      );
+    });
+  }
+
+  void scrollToSection(int navIndex) {
+    if (navIndex == 2) {
+      // open join us
+      js.context.callMethod('open', [SnsLinks.joinus]);
+
+      return;
+    }
+
+    final key = navbarKeys[navIndex];
+    Scrollable.ensureVisible(
+      key.currentContext!, //shouldnot null
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
     );
   }
 }

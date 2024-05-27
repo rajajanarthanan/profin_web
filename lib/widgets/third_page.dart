@@ -1,0 +1,74 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/material.dart';
+import 'package:pr_web_test/constants/colors.dart';
+
+class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+    return Container(
+      width: screenWidth,
+      padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+      child: Column(
+        children: [
+          const Text(
+            "Why Whatsapp Marketing? ",
+            style: TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+              color: CustomColor.whitePrimary,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 280,
+                width: 250,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: CustomColor.bgLight2,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    "whywhatsappmarketing.png",
+                    width: 800,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+
+              const SizedBox(width: 20),
+              // Add some space between the image and the text
+              // Text content on the right side of the image
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: CustomColor.bgLight2,
+                  ),
+                  child: Text(
+                    "WhatsApp marketing is a way of promoting businesses \nand engaging customers using the WhatsApp platform. \nIt offers direct communication, broad reach, and the ability \nto share a variety of media, making it an effective tool \nfor marketing strategies.",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.normal,
+                      color: CustomColor.whitePrimary,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
