@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pr_web_test/model/shoppingcart_model.dart';
 import 'package:pr_web_test/pages/home_page.dart';
 import 'package:pr_web_test/pages/login_page.dart';
-import 'package:pr_web_test/pages/shopping_page.dart';
+import 'package:pr_web_test/pages/shopping_homepage.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
       create: (context) => CartModel(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        //theme: ThemeData.dark(),
-        // title: 'Profinix',
+        theme: ThemeData.dark(),
+        title: 'Profinix',
         initialRoute: '/home', // Set the initial route to the login page
         routes: {
-          '/login': (context) => const LoginPage(),
           '/home': (context) => const HomePage(),
-          '/shopping': (context) => const ShoppingPage(),
+          '/joinus': (context) => const LoginPage(),
+          '/shoppinghomepage': (context) => const ShoppingPage(),
         },
       ),
     );

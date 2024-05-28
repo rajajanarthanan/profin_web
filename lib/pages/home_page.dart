@@ -3,18 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pr_web_test/constants/appmenu.dart';
+//import 'package:pr_web_test/constants/appmenu.dart';
 import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/constants/second_page.dart';
+//import 'package:pr_web_test/constants/second_page.dart';
 import 'package:pr_web_test/constants/size.dart';
 import 'package:pr_web_test/constants/sns_links.dart';
-import 'package:pr_web_test/styles/style.dart';
-import 'package:pr_web_test/utils/fourthpage_utils.dart';
+//import 'package:pr_web_test/styles/style.dart';
+//import 'package:pr_web_test/utils/fourthpage_utils.dart';
 import 'package:pr_web_test/widgets/contact_page.dart';
-import 'package:pr_web_test/widgets/custom_textfield.dart';
+//import 'package:pr_web_test/widgets/custom_textfield.dart';
 import 'package:pr_web_test/widgets/drawer_mobile.dart';
 import 'package:pr_web_test/widgets/footer.dart';
-import 'package:pr_web_test/widgets/fourth_page.dart';
+//import 'package:pr_web_test/widgets/fourth_page.dart';
 import 'package:pr_web_test/widgets/fourthpage_section.dart';
 import 'package:pr_web_test/widgets/header_desktop.dart';
 import 'package:pr_web_test/widgets/header_mobile.dart';
@@ -24,7 +24,7 @@ import 'package:pr_web_test/widgets/second_desktop.dart';
 //import 'package:pr_web_test/widgets/sample_second_desktop.dart';
 import 'package:pr_web_test/widgets/second_mobile.dart';
 import 'package:pr_web_test/widgets/third_page.dart';
-import 'package:pr_web_test/widgets/web_logo.dart';
+//import 'package:pr_web_test/widgets/web_logo.dart';
 import 'dart:js' as js;
 
 class HomePage extends StatefulWidget {
@@ -56,6 +56,11 @@ class _HomePageState extends State<HomePage> {
                 onNavItemTap: (int navIndex) {
                   // function call
                   scaffoldKey.currentState?.closeEndDrawer();
+                  if (navIndex == 1) {
+                    Navigator.pushNamed(context, '/shoppinghomepage');
+                  } else {
+                    scrollToSection(navIndex);
+                  }
 
                   scrollToSection(navIndex);
                 },
@@ -70,6 +75,11 @@ class _HomePageState extends State<HomePage> {
               if (constraints.maxWidth >=
                   kMinDesktopWidth) //screen size max or min
                 HeaderDesktop(onNavMenuTap: (int navIndex) {
+                  if (navIndex == 3) {
+                    Navigator.pushNamed(context, '/shoppinghomepage');
+                  } else {
+                    scrollToSection(navIndex);
+                  }
                   //call function
                   scrollToSection(navIndex);
                 })
@@ -84,6 +94,12 @@ class _HomePageState extends State<HomePage> {
                 const MainDesktop()
               else
                 MainMobile(),
+              //ElevatedButton(
+              // onPressed: () {
+              //   scrollToSection(1); // Assuming 1 is the index for "Join Us"
+              // },
+              //  child: const Text('Join Us'),
+              //  ),
 
               //second page
               Container(
@@ -181,7 +197,9 @@ class _HomePageState extends State<HomePage> {
   void scrollToSection(int navIndex) {
     if (navIndex == 2) {
       // open join us
-      js.context.callMethod('open', [SnsLinks.joinus]);
+      Navigator.pushNamed(context, '/joinus');
+
+      //js.context.callMethod('open', [SnsLinks.joinus]);
 
       return;
     }

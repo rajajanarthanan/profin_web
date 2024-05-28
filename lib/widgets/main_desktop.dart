@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:pr_web_test/constants/colors.dart';
 
-class MainDesktop extends StatelessWidget {
+class MainDesktop extends StatefulWidget {
   const MainDesktop({super.key});
+
+  @override
+  _MainDesktopState createState() => _MainDesktopState();
+}
+
+class _MainDesktopState extends State<MainDesktop> {
+  // ignore: unused_field
+  double _opacity = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the animation after the widget builds
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _opacity = 1.0;
+      });
+    });
+  }
+
+//class MainDesktop extends StatelessWidget {
+  //const MainDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +49,7 @@ class MainDesktop extends StatelessWidget {
               const Text(
                 " Break Through the noise,\n Stand Out in the Inbox !",
                 style: TextStyle(
-                  fontSize: 50.0,
+                  fontSize: 25.0,
                   height: 1.5,
                   fontWeight: FontWeight.bold,
                   color: CustomColor.whitePrimary,
@@ -36,7 +58,7 @@ class MainDesktop extends StatelessWidget {
               const SizedBox(height: 15),
               SizedBox(
                 width: 250,
-                height: 80,
+                height: 60,
                 child: ElevatedButton(
                     onPressed: () {},
                     child: const Text(
@@ -50,7 +72,7 @@ class MainDesktop extends StatelessWidget {
             ],
           ),
           Image.asset(
-            "assets/first.png",
+            "assets/frontpage.jpg",
             width: screenWidth / 2,
           ),
         ],

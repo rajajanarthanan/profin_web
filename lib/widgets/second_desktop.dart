@@ -21,59 +21,56 @@ class SecondDesktop extends StatelessWidget {
               for (int i = rowIndex * itemsPerRow;
                   i < (rowIndex + 1) * itemsPerRow && i < platformItems.length;
                   i++)
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  width: 350,
-                  height: 250,
-                  decoration: BoxDecoration(
-                    color: CustomColor.bgLight2,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 10.0,
-                    ),
-                    leading: Image.asset(
-                      platformItems[i]["img"],
-                      width: 30,
-                    ),
-                    title: Column(
-                      //crossAxisAlignment: CrossAxisAlignment.start,
-                      //mainAxisSize: MainAxisSize.max,
-                      //children: [
-                      //Row(
-                      //crossAxisAlignment: CrossAxisAlignment.center,
-                      //children: [
-                      //Image.asset(
-                      //platformItems[i]["img"],
-                      //width: 26,
-                      //),
-                      //],
-                      //),
-                      //const SizedBox(height: 5),
-                      //Row(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          platformItems[i]["title"],
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.amber,
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        margin: const EdgeInsets.all(8.0),
+                        width: 250,
+                        height: 280,
+                        decoration: BoxDecoration(
+                          color: CustomColor.bgLight2,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: SizedBox(
+                          child: ListTile(
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 10.0,
+                            ),
+                            leading: Image.asset(
+                              platformItems[i]["img"],
+                              width: 50,
+                              height: 30,
+                              fit: BoxFit.contain,
+                            ),
+                            title: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  platformItems[i]["title"],
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.amber,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  platformItems[i]["description"],
+                                  overflow: TextOverflow.clip,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        const SizedBox(height: 5),
-                        Text(
-                          platformItems[i]["description"],
-                          overflow: TextOverflow.clip,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
             ],
           ),
