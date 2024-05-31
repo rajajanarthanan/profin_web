@@ -16,7 +16,7 @@ class CartPage extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemCount: value.cartItems.length,
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(12.0),
@@ -30,7 +30,7 @@ class CartPage extends StatelessWidget {
                           title: Text(value.cartItems[index][0]),
                           subtitle: Text(value.cartItems[index][1]),
                           trailing: IconButton(
-                            icon: Icon(Icons.cancel),
+                            icon: const Icon(Icons.cancel),
                             onPressed: () =>
                                 Provider.of<CartModel>(context, listen: false)
                                     .removeItemFromCart(index),

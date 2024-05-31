@@ -4,17 +4,18 @@ import 'package:pr_web_test/utils/fourthpage_utils.dart';
 import 'package:pr_web_test/widgets/fourth_page.dart';
 
 class FourthpageSection extends StatelessWidget {
-  const FourthpageSection({super.key});
+  const FourthpageSection({Key? key});
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: 1300,
       width: screenWidth,
+      //height: 500,
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       color: CustomColor.bgLight1,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //fourthpage title
           const Padding(
@@ -28,20 +29,19 @@ class FourthpageSection extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           //fourthpage card
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 900),
-            child: Wrap(
-              spacing: 50,
-              runSpacing: 50,
-              children: [
-                for (int i = 0; i < fourthPageUtils.length; i++)
-                  FourthPageWidget(
-                    fourth: fourthPageUtils[i],
-                  ),
-              ],
-            ),
+          Wrap(
+            spacing: 20,
+            runSpacing: 20,
+            alignment: WrapAlignment.center,
+            children: [
+              for (final fourth in fourthPageUtils)
+                Container(
+                  width: screenWidth < 600 ? screenWidth - 40 : 400,
+                  child: FourthPageWidget(fourth: fourth),
+                ),
+            ],
           )
         ],
       ),

@@ -35,7 +35,24 @@ class DrawerMobile extends StatelessWidget {
                 fontSize: 16,
               ),
               onTap: () {
-                onNavItemTap(i);
+                void _onNavItemTap(int index) {
+                  switch (index) {
+                    case 0:
+                      Navigator.pushNamed(context, '/home');
+                      break;
+                    case 1:
+                      Navigator.pushNamed(context, '/contact');
+                      break;
+                    case 2:
+                      Navigator.pushNamed(context, '/joinus');
+                      break;
+                    case 3:
+                      Navigator.pushNamed(context, '/shoppinghomepage');
+                      break;
+                    default:
+                      break;
+                  }
+                }
               },
               leading: Icon(navIcons[i]),
               title: Text(navTitles[i]),

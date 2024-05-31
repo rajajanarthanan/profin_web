@@ -3,6 +3,7 @@ import 'package:pr_web_test/model/shoppingcart_model.dart';
 import 'package:pr_web_test/pages/home_page.dart';
 import 'package:pr_web_test/pages/login_page.dart';
 import 'package:pr_web_test/pages/shopping_homepage.dart';
+import 'package:pr_web_test/widgets/contact_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -24,9 +25,11 @@ class MyApp extends StatelessWidget {
         initialRoute: '/home', // Set the initial route to the login page
         routes: {
           '/home': (context) => const HomePage(),
+          '/contactus': (context) => const ContactPage(),
           '/joinus': (context) => const LoginPage(),
           '/shoppinghomepage': (context) => const ShoppingPage(),
         },
+        //routes for drawer
       ),
     );
   }

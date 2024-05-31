@@ -3,29 +3,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:pr_web_test/constants/appmenu.dart';
 import 'package:pr_web_test/constants/colors.dart';
-//import 'package:pr_web_test/constants/second_page.dart';
 import 'package:pr_web_test/constants/size.dart';
-import 'package:pr_web_test/constants/sns_links.dart';
-//import 'package:pr_web_test/styles/style.dart';
-//import 'package:pr_web_test/utils/fourthpage_utils.dart';
 import 'package:pr_web_test/widgets/contact_page.dart';
-//import 'package:pr_web_test/widgets/custom_textfield.dart';
 import 'package:pr_web_test/widgets/drawer_mobile.dart';
 import 'package:pr_web_test/widgets/footer.dart';
-//import 'package:pr_web_test/widgets/fourth_page.dart';
-import 'package:pr_web_test/widgets/fourthpage_section.dart';
+import 'package:pr_web_test/widgets/fourthpage_mobile.dart';
+//import 'package:pr_web_test/widgets/fourthpage_section.dart';
 import 'package:pr_web_test/widgets/header_desktop.dart';
 import 'package:pr_web_test/widgets/header_mobile.dart';
 import 'package:pr_web_test/widgets/main_desktop.dart';
 import 'package:pr_web_test/widgets/main_mobile.dart';
 import 'package:pr_web_test/widgets/second_desktop.dart';
-//import 'package:pr_web_test/widgets/sample_second_desktop.dart';
 import 'package:pr_web_test/widgets/second_mobile.dart';
 import 'package:pr_web_test/widgets/third_page.dart';
-//import 'package:pr_web_test/widgets/web_logo.dart';
-import 'dart:js' as js;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,16 +28,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
-  final List<GlobalKey> navbarKeys = List.generate(2, (index) => GlobalKey());
+  final List<GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
 
-    return LayoutBuilder(
-        //LObuilder passes the parameters and constraints contains the infor of screensize
-        builder: (context, constraints) {
+    return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldKey,
         backgroundColor: CustomColor.scaffoldBg,
@@ -54,34 +43,27 @@ class _HomePageState extends State<HomePage> {
             ? null
             : DrawerMobile(
                 onNavItemTap: (int navIndex) {
-                  // function call
                   scaffoldKey.currentState?.closeEndDrawer();
                   if (navIndex == 1) {
                     Navigator.pushNamed(context, '/shoppinghomepage');
                   } else {
                     scrollToSection(navIndex);
                   }
-
-                  scrollToSection(navIndex);
                 },
-              ), //null--> we no need drawer menu on desktop else the mobile view will display
+              ),
         body: SingleChildScrollView(
-          controller: ScrollController(),
+          controller: scrollController,
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              SizedBox(key: navbarKeys.first), //if tap on the home button
-              //home
-              if (constraints.maxWidth >=
-                  kMinDesktopWidth) //screen size max or min
+              SizedBox(key: navbarKeys.first),
+              if (constraints.maxWidth >= kMinDesktopWidth)
                 HeaderDesktop(onNavMenuTap: (int navIndex) {
                   if (navIndex == 3) {
                     Navigator.pushNamed(context, '/shoppinghomepage');
                   } else {
                     scrollToSection(navIndex);
                   }
-                  //call function
-                  scrollToSection(navIndex);
                 })
               else
                 HeaderMobile(
@@ -94,16 +76,7 @@ class _HomePageState extends State<HomePage> {
                 const MainDesktop()
               else
                 MainMobile(),
-              //ElevatedButton(
-              // onPressed: () {
-              //   scrollToSection(1); // Assuming 1 is the index for "Join Us"
-              // },
-              //  child: const Text('Join Us'),
-              //  ),
-
-              //second page
               Container(
-                //height: 500,
                 width: screenWidth,
                 padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                 color: CustomColor.bgLight1,
@@ -126,66 +99,39 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-
-              //thirdpage
               ThirdPage(),
-              //end of third page
               SizedBox(height: 20),
-              //fourthpage
               const FourthpageSection(),
-
               const SizedBox(height: 30),
-
-              //last page
               Container(
-                height: 800,
-                //width: double.maxFinite,
-                color: Colors.blueGrey,
-
-                width: screenWidth,
+                width: double.infinity,
+                color: CustomColor.bgLight1,
                 padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                 child: Column(
                   children: [
                     const Text(
-                      "Works All Over the World ",
+                      "Works All Over the World",
                       style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.whitePrimary,
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "newworld.png",
-                                  width: 800,
-                                  fit: BoxFit.contain,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(width: 16),
-                      ],
+                    const SizedBox(height: 30),
+                    Center(
+                      child: Image.asset(
+                        "newworld.png",
+                        width: screenWidth * 0.8,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ],
                 ),
               ),
-              //contact
               const SizedBox(height: 20),
               ContactPage(
                 key: navbarKeys[1],
               ),
-              //footer
               Footer(),
             ],
           ),
@@ -196,17 +142,13 @@ class _HomePageState extends State<HomePage> {
 
   void scrollToSection(int navIndex) {
     if (navIndex == 2) {
-      // open join us
       Navigator.pushNamed(context, '/joinus');
-
-      //js.context.callMethod('open', [SnsLinks.joinus]);
-
       return;
     }
 
     final key = navbarKeys[navIndex];
     Scrollable.ensureVisible(
-      key.currentContext!, //shouldnot null
+      key.currentContext!,
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pr_web_test/constants/colors.dart';
 
 class ThirdPage extends StatelessWidget {
@@ -28,8 +29,8 @@ class ThirdPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 280,
-                width: 250,
+                height: 350,
+                width: 300,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: CustomColor.bgLight2,
@@ -49,15 +50,17 @@ class ThirdPage extends StatelessWidget {
               // Text content on the right side of the image
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.all(16.0),
+                  height: 350,
+                  width: 100,
+                  padding: EdgeInsets.all(80.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: CustomColor.bgLight2,
                   ),
                   child: Text(
-                    "WhatsApp marketing is a way of promoting businesses \nand engaging customers using the WhatsApp platform. \nIt offers direct communication, broad reach, and the ability \nto share a variety of media, making it an effective tool \nfor marketing strategies.",
+                    "# WhatsApp marketing is a way of promoting businesses \nand engaging customers using the WhatsApp platform. \nIt offers direct communication, broad reach, and the ability \nto share a variety of media, making it an effective tool \nfor marketing strategies.",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       fontWeight: FontWeight.normal,
                       color: CustomColor.whitePrimary,
                     ),

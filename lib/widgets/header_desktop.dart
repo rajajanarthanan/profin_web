@@ -11,6 +11,7 @@ class HeaderDesktop extends StatelessWidget {
     required this.onNavMenuTap,
   });
   final Function(int) onNavMenuTap;
+
   @override
   Widget build(BuildContext context) {
     return Container(
