@@ -18,7 +18,7 @@ class ShopPage extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
           return const CartPage();
         })),
-        backgroundColor: CustomColor.yellowPrimary,
+        backgroundColor: CustomColor.scaffoldBg,
         child: const Icon(Icons.shopping_bag_outlined),
       ),
       body: SafeArea(
@@ -60,17 +60,20 @@ class ShopPage extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 1 / 1.3,
+                      childAspectRatio: 1.2,
                     ),
                     itemBuilder: (context, index) {
-                      return ShoppingPackageTile(
-                        packageName: value.shopItems[index][0],
-                        packagePrice: value.shopItems[index][1],
-                        imagePath: value.shopItems[index][2],
-                        onPressed: () {
-                          Provider.of<CartModel>(context, listen: false)
-                              .addItemToCart(index);
-                        },
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ShoppingPackageTile(
+                          packageName: value.shopItems[index][0],
+                          packagePrice: value.shopItems[index][1],
+                          imagePath: value.shopItems[index][2],
+                          onPressed: () {
+                            Provider.of<CartModel>(context, listen: false)
+                                .addItemToCart(index);
+                          },
+                        ),
                       );
                     },
                     //                    itemCount: value.shopItems.length,
@@ -82,6 +85,70 @@ class ShopPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+//import 'package:flutter/material.dart';
+//import 'package:pr_web_test/constants/colors.dart';
+
+class ShoppingPackageTile extends StatelessWidget {
+  final String packageName;
+  final String packagePrice;
+  final String imagePath;
+  final VoidCallback onPressed;
+
+  const ShoppingPackageTile({
+    required this.packageName,
+    required this.packagePrice,
+    required this.imagePath,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Image.asset(imagePath, fit: BoxFit.fill),
+          ),
+          //const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              packageName,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: CustomColor.whitePrimary,
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Price: $packagePrice",
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.green,
+              ),
+            ),
+          ),
+          const SizedBox(height: 2),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: onPressed,
+              child: const Text("Add to Cart",
+                  style: TextStyle(
+                    fontSize: 15,
+                  )),
+            ),
+          ),
+        ],
       ),
     );
   }

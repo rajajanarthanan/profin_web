@@ -19,7 +19,7 @@ class ThirdPage extends StatelessWidget {
           const Text(
             "Why Whatsapp Marketing? ",
             style: TextStyle(
-              fontSize: 35,
+              fontSize: 38,
               fontWeight: FontWeight.bold,
               color: CustomColor.whitePrimary,
             ),
@@ -29,8 +29,8 @@ class ThirdPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 350,
-                width: 300,
+                height: 500,
+                width: 800,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: CustomColor.bgLight2,
@@ -38,9 +38,10 @@ class ThirdPage extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    "whywhatsappmarketing.png",
-                    width: 800,
-                    fit: BoxFit.cover,
+                    "why.png",
+                    width: 500,
+                    height: 500,
+                    //fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -50,21 +51,21 @@ class ThirdPage extends StatelessWidget {
               // Text content on the right side of the image
               Expanded(
                 child: Container(
-                  height: 350,
-                  width: 100,
+                  height: 500,
+                  width: 200,
                   padding: EdgeInsets.all(80.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: CustomColor.bgLight2,
                   ),
                   child: Text(
-                    "# WhatsApp marketing is a way of promoting businesses \nand engaging customers using the WhatsApp platform. \nIt offers direct communication, broad reach, and the ability \nto share a variety of media, making it an effective tool \nfor marketing strategies.",
+                    "# WhatsApp marketing is a way of promoting businesses and engaging customers using the WhatsApp platform. It offers direct communication, broad reach, and the ability to share a variety of media, making it an effective tool for marketing strategies.",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.normal,
                       color: CustomColor.whitePrimary,
                     ),
-                    textAlign: TextAlign.justify,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),

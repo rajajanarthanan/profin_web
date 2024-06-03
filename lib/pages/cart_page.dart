@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pr_web_test/constants/colors.dart';
 import 'package:pr_web_test/model/shoppingcart_model.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +23,7 @@ class CartPage extends StatelessWidget {
                       padding: const EdgeInsets.all(12.0),
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: CustomColor.scaffoldBg,
                             borderRadius: BorderRadius.circular(20)),
                         child: ListTile(
                           leading: Image.asset(value.cartItems[index][2],

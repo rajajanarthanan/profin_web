@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr_web_test/constants/colors.dart';
+//import 'package:flutter/animation.dart';
 
 class MainDesktop extends StatefulWidget {
   const MainDesktop({super.key});
@@ -72,7 +73,7 @@ class _MainDesktopState extends State<MainDesktop> {
             ],
           ),
           Image.asset(
-            "assets/frontpage.jpg",
+            "assets/frontimage.png",
             width: screenWidth / 2,
           ),
         ],
