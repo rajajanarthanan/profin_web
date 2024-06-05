@@ -12,7 +12,7 @@ class HeaderMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.0,
+      height: 60.0,
       margin: const EdgeInsets.fromLTRB(40, 5, 20, 5),
       decoration: kHeaderDecoration,
       child: Row(

@@ -70,6 +70,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_easy_animations:
+    dependency: "direct main"
+    description:
+      name: flutter_easy_animations
+      sha256: "86cea94c1d1b9e3d7dcbd94fd7e9d772ae6cd7c54ad4f0d9681ca6cd25bd4b2f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:

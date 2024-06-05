@@ -6,7 +6,7 @@ List<String> navTitles = [
   "Home",
   "Contact Us",
   "Join Us",
-  "Explore our Store",
+  "Store",
 ];
 
 List<IconData> navIcons = [

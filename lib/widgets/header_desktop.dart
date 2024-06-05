@@ -15,7 +15,7 @@ class HeaderDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 50,
       margin: const EdgeInsets.symmetric(
         vertical: 10.0,
         horizontal: 20.0,
@@ -38,7 +38,7 @@ class HeaderDesktop extends StatelessWidget {
                 child: Text(
                   navTitles[i],
                   style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                       color: CustomColor.whitePrimary),
                 ),

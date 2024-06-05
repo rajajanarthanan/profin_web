@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr_web_test/constants/colors.dart';
-//import 'package:flutter/animation.dart';
+import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 
 class MainDesktop extends StatefulWidget {
   const MainDesktop({super.key});
@@ -9,58 +9,93 @@ class MainDesktop extends StatefulWidget {
   _MainDesktopState createState() => _MainDesktopState();
 }
 
-class _MainDesktopState extends State<MainDesktop> {
-  // ignore: unused_field
-  double _opacity = 0.0;
+class _MainDesktopState extends State<MainDesktop>
+    with SingleTickerProviderStateMixin {
+  final List<String> quotes = [
+    "Break Through the noise,\nStand Out in the Inbox!",
+    "Reach your customers \ndirectly on WhatsApp.",
+    "Boost your engagement \nwith personalized messages."
+  ];
+
+  int _currentQuoteIndex = 0;
+  late AnimationController _controller;
+  late Animation<double> _bounceAnimation;
 
   @override
   void initState() {
     super.initState();
-    // Start the animation after the widget builds
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        _opacity = 1.0;
-      });
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+
+    _bounceAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.bounceOut,
+    );
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Future.delayed(const Duration(seconds: 2), () {
+          setState(() {
+            _currentQuoteIndex = (_currentQuoteIndex + 1) % quotes.length;
+          });
+          _controller.reset();
+          _controller.forward();
+        });
+      }
     });
+
+    _controller.forward();
   }
 
-//class MainDesktop extends StatelessWidget {
-  //const MainDesktop({super.key});
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
     final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
 
     return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 20.0,
-      ),
-      height: screenHeight / 1.2,
-      constraints: const BoxConstraints(
-        minHeight: 350.0,
-      ),
+      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+      height: screenHeight,
+      constraints: const BoxConstraints(minHeight: 350.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                " Break Through the noise,\n Stand Out in the Inbox !",
-                style: TextStyle(
-                  fontSize: 25.0,
-                  height: 1.5,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColor.whitePrimary,
+              SizeTransition(
+                sizeFactor: _bounceAnimation,
+                axis: Axis.vertical,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0, left: 60.0),
+                  child: Text(
+                    quotes[_currentQuoteIndex],
+                    style: const TextStyle(
+                      fontSize: 35.0,
+                      height: 1.5,
+                      fontWeight: FontWeight.bold,
+                      color: CustomColor.whitePrimary,
+                    ),
+                  ),
                 ),
               ),
-              const SizedBox(height: 15),
-              SizedBox(
-                width: 250,
-                height: 60,
-                child: ElevatedButton(
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 60.0),
+                child: SizedBox(
+                  width: 250,
+                  height: 60,
+                  child: ElevatedButton(
                     onPressed: () {},
                     child: const Text(
                       "Get the App",
@@ -68,13 +103,16 @@ class _MainDesktopState extends State<MainDesktop> {
                         fontSize: 25,
                         color: Colors.amber,
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-          Image.asset(
-            "assets/frontimage.png",
+          Container(
+            padding: const EdgeInsets.only(left: 20.0),
             width: screenWidth / 2,
+            child: Image.asset("assets/marketingfront.png"),
           ),
         ],
       ),

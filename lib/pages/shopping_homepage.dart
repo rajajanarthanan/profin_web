@@ -13,9 +13,9 @@ class ShoppingPage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  left: 70, right: 70, bottom: 70, top: 120),
+                  left: 70, right: 70, bottom: 70, top: 80),
               child: Image.asset(
-                'assets/icons/shoppingcartoon.png',
+                'assets/shopping/shopage.png',
                 width: 250,
                 height: 250,
               ),
