@@ -13,6 +13,8 @@ class ShopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColor.bgLight1, // Change the background color here
+
       floatingActionButton: FloatingActionButton(
         onPressed: () =>
             Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -21,6 +23,7 @@ class ShopPage extends StatelessWidget {
         backgroundColor: CustomColor.scaffoldBg,
         child: const Icon(Icons.shopping_bag_outlined),
       ),
+
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
