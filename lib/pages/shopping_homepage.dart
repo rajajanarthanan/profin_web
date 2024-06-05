@@ -8,6 +8,7 @@ class ShoppingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColor.scaffoldBg,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -51,6 +52,7 @@ class ShoppingPage extends StatelessWidget {
               child: const Text(
                 "Get Started",
                 style: TextStyle(
+                  color: CustomColor.whitePrimary,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
