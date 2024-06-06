@@ -17,15 +17,18 @@ class WebLogo extends StatelessWidget {
             //width: 100, // Set the desired height for your logo
           ),
           const SizedBox(width: 10), // Add some space between the logo and text
-          const Text(
-            "PRofinix Technologies",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              //decoration: TextDecoration.underline,
-              color: CustomColor.whitePrimary,
+          GestureDetector(
+            onTap: onTap,
+            child: const Text(
+              "PRofinix Technologies",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                //decoration: TextDecoration.underline,
+                color: CustomColor.whitePrimary,
+              ),
+              overflow: TextOverflow.ellipsis, // Handle text overflow
             ),
-            overflow: TextOverflow.ellipsis, // Handle text overflow
           ),
         ],
       ),

@@ -12,7 +12,7 @@ class PrivacyPolicyPage extends StatelessWidget {
       ),
       body: FutureBuilder(
         future: DefaultAssetBundle.of(context)
-            .loadString('assets/privacy_policy.md'),
+            .loadString('assets/ privacy_policy.md'),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Markdown(data: snapshot.data ?? '');

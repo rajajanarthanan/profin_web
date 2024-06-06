@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pr_web_test/constants/colors.dart';
 import 'package:pr_web_test/styles/style.dart';
 
 import 'web_logo.dart';
@@ -13,17 +14,26 @@ class HeaderMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60.0,
-      margin: const EdgeInsets.fromLTRB(40, 5, 20, 5),
+      margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
       decoration: kHeaderDecoration,
       child: Row(
         children: [
-          WebLogo(
+          GestureDetector(
             onTap: onLogoTap,
+            child: const Text(
+              "Profinix Technologies",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: CustomColor.whitePrimary,
+              ),
+            ),
           ),
+          //WebLogo(onTap: () {}),
           const Spacer(),
           IconButton(
             onPressed: onMenuTap,
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.menu, color: CustomColor.whitePrimary),
           ),
           const SizedBox(width: 15),
         ],

@@ -1,19 +1,16 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/rendering.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:pr_web_test/constants/colors.dart';
 import 'package:pr_web_test/constants/size.dart';
 import 'package:pr_web_test/widgets/contact_page.dart';
 import 'package:pr_web_test/widgets/drawer_mobile.dart';
 import 'package:pr_web_test/widgets/footer.dart';
 import 'package:pr_web_test/widgets/fourthpage_section.dart';
-//import 'package:pr_web_test/widgets/fourthpage_section.dart';
 import 'package:pr_web_test/widgets/header_desktop.dart';
 import 'package:pr_web_test/widgets/header_mobile.dart';
 import 'package:pr_web_test/widgets/main_desktop.dart';
-import 'package:pr_web_test/widgets/main_mobile.dart';
+// import 'package:pr_web_test/widgets/main_mobile.dart';
 import 'package:pr_web_test/widgets/second_desktop.dart';
 import 'package:pr_web_test/widgets/second_mobile.dart';
 import 'package:pr_web_test/widgets/third_page.dart';
@@ -38,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: CustomColor.scaffoldBg,
-      endDrawer: MediaQuery.of(context).size.width >= kMinDesktopWidth
+      endDrawer: screenWidth >= kMinDesktopWidth
           ? null
           : DrawerMobile(
               onNavItemTap: (int navIndex) {
@@ -51,16 +48,23 @@ class _HomePageState extends State<HomePage> {
               },
             ),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(90.0),
-        child: HeaderDesktop(
-          onNavMenuTap: (int navIndex) {
-            if (navIndex == 3) {
-              Navigator.pushNamed(context, '/shoppinghomepage');
-            } else {
-              scrollToSection(navIndex);
-            }
-          },
-        ),
+        preferredSize: Size.fromHeight(60.0),
+        child: screenWidth >= kMinDesktopWidth
+            ? HeaderDesktop(
+                onNavMenuTap: (int navIndex) {
+                  if (navIndex == 3) {
+                    Navigator.pushNamed(context, '/shoppinghomepage');
+                  } else {
+                    scrollToSection(navIndex);
+                  }
+                },
+              )
+            : HeaderMobile(
+                onLogoTap: () {},
+                onMenuTap: () {
+                  scaffoldKey.currentState?.openEndDrawer();
+                },
+              ),
       ),
       body: SingleChildScrollView(
         controller: scrollController,
@@ -85,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  MediaQuery.of(context).size.width >= kMedDesktopWidth
+                  screenWidth >= kMedDesktopWidth
                       ? SecondDesktop()
                       : SecondMobile(),
                 ],
