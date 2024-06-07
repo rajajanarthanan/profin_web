@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/utils/fourthpage_utils.dart';
-import 'package:pr_web_test/widgets/fourth_page.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/utils/fourthpage_utils.dart';
+import 'package:profinix_tech/widgets/fourth_page.dart';
 
 class FourthpageSection extends StatelessWidget {
   const FourthpageSection({Key? key});

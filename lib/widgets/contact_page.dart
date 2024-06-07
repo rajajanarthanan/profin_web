@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/constants/size.dart';
-import 'package:pr_web_test/constants/sns_links.dart';
-import 'package:pr_web_test/widgets/custom_textfield.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/constants/size.dart';
+import 'package:profinix_tech/constants/sns_links.dart';
+import 'package:profinix_tech/widgets/custom_textfield.dart';
 import 'dart:js' as js;
 
 class ContactPage extends StatelessWidget {

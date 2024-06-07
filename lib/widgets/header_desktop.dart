@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/appmenu.dart';
-import 'package:pr_web_test/styles/style.dart';
-import 'package:pr_web_test/widgets/web_logo.dart';
+import 'package:profinix_tech/constants/appmenu.dart';
+import 'package:profinix_tech/styles/style.dart';
+import 'package:profinix_tech/widgets/web_logo.dart';
 
 import '../constants/colors.dart';
 

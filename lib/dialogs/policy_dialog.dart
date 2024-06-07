@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:pr_web_test/constants/colors.dart';
+import 'package:profinix_tech/constants/colors.dart';
 
 class PolicyDialog extends StatelessWidget {
   final double radius;

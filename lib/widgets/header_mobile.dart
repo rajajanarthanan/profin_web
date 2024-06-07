@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/styles/style.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/styles/style.dart';
 
 import 'web_logo.dart';
 

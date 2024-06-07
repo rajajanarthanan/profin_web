@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/colors.dart';
+import 'package:profinix_tech/constants/colors.dart';
 
 class WebLogo extends StatelessWidget {
   const WebLogo({super.key, this.onTap});

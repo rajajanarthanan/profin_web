@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 // import 'package:flutter/widgets.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/constants/size.dart';
-import 'package:pr_web_test/widgets/contact_page.dart';
-import 'package:pr_web_test/widgets/drawer_mobile.dart';
-import 'package:pr_web_test/widgets/footer.dart';
-import 'package:pr_web_test/widgets/fourthpage_section.dart';
-import 'package:pr_web_test/widgets/header_desktop.dart';
-import 'package:pr_web_test/widgets/header_mobile.dart';
-import 'package:pr_web_test/widgets/main_desktop.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/constants/size.dart';
+import 'package:profinix_tech/widgets/contact_page.dart';
+import 'package:profinix_tech/widgets/drawer_mobile.dart';
+import 'package:profinix_tech/widgets/footer.dart';
+import 'package:profinix_tech/widgets/fourthpage_section.dart';
+import 'package:profinix_tech/widgets/header_desktop.dart';
+import 'package:profinix_tech/widgets/header_mobile.dart';
+import 'package:profinix_tech/widgets/main_desktop.dart';
 // import 'package:pr_web_test/widgets/main_mobile.dart';
-import 'package:pr_web_test/widgets/second_desktop.dart';
-import 'package:pr_web_test/widgets/second_mobile.dart';
-import 'package:pr_web_test/widgets/third_page.dart';
+import 'package:profinix_tech/widgets/second_desktop.dart';
+import 'package:profinix_tech/widgets/second_mobile.dart';
+import 'package:profinix_tech/widgets/third_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

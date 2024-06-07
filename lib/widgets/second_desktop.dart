@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/constants/second_page.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/constants/second_page.dart';
 
 class SecondDesktop extends StatelessWidget {
   const SecondDesktop({super.key});

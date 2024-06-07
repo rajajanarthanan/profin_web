@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/colors.dart';
+import 'package:profinix_tech/constants/colors.dart';
 //import 'package:pr_web_test/pages/terms_conditions_page.dart';
 //import 'package:pr_web_test/pages/privacy_policy_page.dart';
-import 'package:pr_web_test/widgets/privacypolicy_page.dart';
-import 'package:pr_web_test/widgets/termsconditions_page.dart';
+import 'package:profinix_tech/widgets/privacypolicy_page.dart';
+import 'package:profinix_tech/widgets/termsconditions_page.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});

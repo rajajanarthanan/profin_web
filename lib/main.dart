@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/model/shoppingcart_model.dart';
-import 'package:pr_web_test/pages/home_page.dart';
-import 'package:pr_web_test/pages/login_page.dart';
-import 'package:pr_web_test/pages/shopping_homepage.dart';
-import 'package:pr_web_test/widgets/contact_page.dart';
+import 'package:profinix_tech/model/shoppingcart_model.dart';
+import 'package:profinix_tech/pages/home_page.dart';
+import 'package:profinix_tech/pages/login_page.dart';
+import 'package:profinix_tech/pages/shopping_homepage.dart';
+import 'package:profinix_tech/widgets/contact_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        title: 'Profinix',
+        title: 'Profinix Technologies',
         initialRoute: '/home', // Set the initial route to the login page
         routes: {
           '/home': (context) => const HomePage(),

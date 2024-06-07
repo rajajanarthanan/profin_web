@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/pages/shop_page.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/pages/shop_page.dart';
 
 class ShoppingPage extends StatelessWidget {
   const ShoppingPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pr_web_test/dialogs/policy_dialog.dart';
+import 'package:profinix_tech/dialogs/policy_dialog.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({super.key});

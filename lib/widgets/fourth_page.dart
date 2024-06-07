@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/utils/fourthpage_utils.dart';
+import 'package:profinix_tech/constants/colors.dart';
+import 'package:profinix_tech/utils/fourthpage_utils.dart';
 
 class FourthPageWidget extends StatelessWidget {
   const FourthPageWidget({

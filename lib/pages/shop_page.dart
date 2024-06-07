@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pr_web_test/constants/colors.dart';
+import 'package:profinix_tech/constants/colors.dart';
 //import 'package:pr_web_test/constants/shopping_package.dart';
-import 'package:pr_web_test/model/shoppingcart_model.dart';
-import 'package:pr_web_test/pages/cart_page.dart';
+import 'package:profinix_tech/model/shoppingcart_model.dart';
+import 'package:profinix_tech/pages/cart_page.dart';
 import 'package:provider/provider.dart';
 
 class ShopPage extends StatelessWidget {
