@@ -45,7 +45,7 @@ class ContactPage extends StatelessWidget {
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 700),
             child: const CustomTextField(
-              hintText: "Your Message",
+              hintText: "Pleae Enter Your Message",
               maxLines: 10,
             ),
           ),

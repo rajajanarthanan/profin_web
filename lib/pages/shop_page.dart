@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pr_web_test/constants/colors.dart';
-import 'package:pr_web_test/constants/shopping_package.dart';
+//import 'package:pr_web_test/constants/shopping_package.dart';
 import 'package:pr_web_test/model/shoppingcart_model.dart';
 import 'package:pr_web_test/pages/cart_page.dart';
 import 'package:provider/provider.dart';
@@ -72,6 +72,7 @@ class ShopPage extends StatelessWidget {
                           packageName: value.shopItems[index][0],
                           packagePrice: value.shopItems[index][1],
                           imagePath: value.shopItems[index][2],
+                          color: value.shopItems[index][3],
                           onPressed: () {
                             Provider.of<CartModel>(context, listen: false)
                                 .addItemToCart(index);
@@ -99,12 +100,15 @@ class ShoppingPackageTile extends StatelessWidget {
   final String packageName;
   final String packagePrice;
   final String imagePath;
+  final color;
+
   final VoidCallback onPressed;
 
   const ShoppingPackageTile({
     required this.packageName,
     required this.packagePrice,
     required this.imagePath,
+    required this.color,
     required this.onPressed,
   });
 
@@ -123,7 +127,7 @@ class ShoppingPackageTile extends StatelessWidget {
             child: Text(
               packageName,
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
                 color: CustomColor.whitePrimary,
               ),

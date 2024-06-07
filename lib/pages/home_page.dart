@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
             ContactPage(
               key: navbarKeys[1],
             ),
-            Footer(),
+            const Footer(),
           ],
         ),
       ),

@@ -6,6 +6,7 @@ class ShoppingPackageTile extends StatelessWidget {
   final String packageName;
   final String packagePrice;
   final String imagePath;
+  final color;
   void Function()? onPressed;
 
   ShoppingPackageTile({
@@ -13,6 +14,7 @@ class ShoppingPackageTile extends StatelessWidget {
     required this.packageName,
     required this.packagePrice,
     required this.imagePath,
+    required this.color,
     required this.onPressed,
   });
 
@@ -21,9 +23,9 @@ class ShoppingPackageTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: CustomColor.textFieldBg,
+            color: CustomColor.bgLight1,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
