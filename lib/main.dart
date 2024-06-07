@@ -4,6 +4,8 @@ import 'package:profinix_tech/pages/home_page.dart';
 import 'package:profinix_tech/pages/login_page.dart';
 import 'package:profinix_tech/pages/shopping_homepage.dart';
 import 'package:profinix_tech/widgets/contact_page.dart';
+import 'package:profinix_tech/pages/privacy_policy_page.dart';
+import 'package:profinix_tech/pages/termsconditions_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
           '/contactus': (context) => const ContactPage(),
           '/joinus': (context) => const LoginPage(),
           '/shoppinghomepage': (context) => const ShoppingPage(),
+          '/termsandconditions': (context) => const TermsConditionsPage(),
+          '/privacypolicy': (context) => const PrivacyPolicyPage(),
         },
         //routes for drawer
       ),

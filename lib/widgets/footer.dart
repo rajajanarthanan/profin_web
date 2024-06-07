@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:profinix_tech/constants/colors.dart';
 //import 'package:pr_web_test/pages/terms_conditions_page.dart';
 //import 'package:pr_web_test/pages/privacy_policy_page.dart';
-import 'package:profinix_tech/widgets/privacypolicy_page.dart';
-import 'package:profinix_tech/widgets/termsconditions_page.dart';
+import 'package:profinix_tech/pages/privacy_policy_page.dart';
+import 'package:profinix_tech/pages/termsconditions_page.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -30,34 +30,38 @@ class Footer extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const TermsConditionsPage()),
-                  );
+                  Navigator.pushNamed(context, '/termsandconditions');
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => const TermsConditionsPage()),
+                  //);
                 },
                 child: const Text(
                   'Terms and Conditions',
                   style: TextStyle(
                     color: CustomColor.whiteSecondary,
                     decoration: TextDecoration.underline,
+                    backgroundColor: CustomColor.bgLight1,
                   ),
                 ),
               ),
               const SizedBox(width: 20),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const PrivacyPolicyPage()),
-                  );
+                  Navigator.pushNamed(context, '/privacypolicy');
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => const PrivacyPolicyPage()),
+                  // );
                 },
                 child: const Text(
                   'Privacy Policy',
                   style: TextStyle(
                     color: CustomColor.whiteSecondary,
                     decoration: TextDecoration.underline,
+                    backgroundColor: CustomColor.bgLight1,
                   ),
                 ),
               ),
