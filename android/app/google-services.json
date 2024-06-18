@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893369469150",
+    "project_id": "profinixtechnologies-pr75",
+    "storage_bucket": "profinixtechnologies-pr75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893369469150:android:033429349d328871a3da4f",
+        "android_client_info": {
+          "package_name": "com.profinix.website"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAemHdMhstxoJk5r1q7zC_wqzOG52vwSm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

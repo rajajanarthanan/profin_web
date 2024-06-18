@@ -16,6 +16,7 @@ dependencies:
   video_player: ^2.8.6
   flutter_easy_animations: ^0.0.2
   flutter_markdown: ^0.7.1
+  firebase_core: ^3.1.0
 
 dev_dependencies:
   flutter_test:

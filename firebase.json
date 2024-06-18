@@ -1,0 +1,41 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "profinixtechnologies-pr75",
+          "appId": "1:893369469150:android:033429349d328871a3da4f",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "profinixtechnologies-pr75",
+          "configurations": {
+            "android": "1:893369469150:android:033429349d328871a3da4f",
+            "ios": "1:893369469150:ios:ee1df9229c57f5caa3da4f",
+            "macos": "1:893369469150:ios:ee1df9229c57f5caa3da4f",
+            "web": "1:893369469150:web:45090a9a36cf72a0a3da4f",
+            "windows": "1:893369469150:web:87c494995c1430caa3da4f"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}
